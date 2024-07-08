@@ -1,5 +1,5 @@
 import { HANDLER_IDS } from '../constants/handlerIds.js';
-import { locationUpdateHandler } from './LocationUpdate.handler.js';
+import { locationUpdateHandler } from './locationUpdate.handler.js';
 import { initHandler } from './init.handler.js';
 
 const handlers = {
