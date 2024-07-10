@@ -2,9 +2,12 @@ import { config } from '../config/config.js';
 import { PACKET_TYPE } from '../constants/header.js';
 import { getHandlerById } from '../handlers/index.js';
 import { getProtoMessages } from '../init/loadProtos.js';
+import { clients } from '../server.js';
 import { packetParser } from '../utils/parser/packetParser.js';
 
 export const onData = (socket) => async (data) => {
+  clients.set(socket, Date.now());
+
   socket.buffer = Buffer.concat([socket.buffer, data]);
 
   const totalHeaderLength = config.packet.totalLength + config.packet.typeLength;

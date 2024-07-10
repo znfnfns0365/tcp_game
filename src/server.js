@@ -5,6 +5,7 @@ import { onConnection } from './event/onConnection.js';
 import { initGame } from './init/setting/init.game.js';
 import { findTable } from './DB/user/user_db.js';
 
+export const clients = new Map();
 const server = net.createServer(onConnection);
 export const initialGame = initGame('Initial Game');
 
