@@ -1,6 +1,6 @@
 # tcp_game
 
-### 서버 링크
+### 서버 링크 (closed)
 
 - 3.35.219.35 : 5555
 
@@ -31,6 +31,10 @@
 ### Handler
 
 ![alt text](./readmeAssets/handler.png)
+
+### DB setting (MySQL)
+
+![alt text](./readmeAssets/dbStructure.png)
 
 ### 파일 구조
 

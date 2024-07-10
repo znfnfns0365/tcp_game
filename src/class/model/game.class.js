@@ -1,4 +1,4 @@
-import { createLocationPacket } from '../../notification/game.notification.js';
+import { createLocationPacket } from '../../utils/notification/game.notification.js';
 import IntervalManager from '../manager/interval.manager.js';
 
 const MAX_PLAYERS = 10;
@@ -37,13 +37,16 @@ class Game {
   }
 
   // 게임 전체 유저들의 위치 패킷 생성
-  getUsersLocationAsPacket() {
+  getUsersLocationAsPacket(userId) {
     const maxLatency = this.getMaxLatency();
 
-    const locationData = this.users.map((user) => {
-      const { x, y } = user.deadReckoning(maxLatency);
-      return { id: user.userId, playerId: user.playerId, x, y };
-    });
+    const locationData = this.users
+      .filter((user) => userId !== user.userId)
+      .map((user) => {
+        // const { x, y } = user.deadReckoning(maxLatency);
+        return { id: user.userId, playerId: user.playerId, x: user.x, y: user.y };
+      });
+    // console.log(users.length);
     return createLocationPacket(locationData);
   }
 }

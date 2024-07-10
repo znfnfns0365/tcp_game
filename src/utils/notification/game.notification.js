@@ -1,6 +1,6 @@
-import { config } from '../config/config.js';
-import { PACKET_TYPE } from '../constants/header.js';
-import { getProtoMessages } from '../init/loadProtos.js';
+import { config } from '../../config/config.js';
+import { PACKET_TYPE } from '../../constants/header.js';
+import { getProtoMessages } from '../../init/loadProtos.js';
 
 const makeNotification = (message, type) => {
   // 패킷 길이 정보를 포함한 버퍼 생성

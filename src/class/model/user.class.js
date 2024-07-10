@@ -18,8 +18,8 @@ class User {
   }
 
   sendPacket(packet, message) {
-    // this.socket.write(packet);
-    // console.log(message);
+    this.socket.write(packet);
+    console.log(message);
     // 패킷을 보내면 캐릭터가 맘대로 움직임
   }
 
@@ -27,7 +27,7 @@ class User {
     game.intervalManager.addUserInterval(
       this.userId,
       () => {
-        const locationPacket = game.getUsersLocationAsPacket();
+        const locationPacket = game.getUsersLocationAsPacket(this.userId);
         this.sendPacket(locationPacket, 'location packet sended');
       },
       1000,

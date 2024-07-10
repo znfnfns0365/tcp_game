@@ -26,9 +26,6 @@ export const onData = (socket) => async (data) => {
 
       try {
         switch (packetType) {
-          case PACKET_TYPE.Ping:
-            console.log(`PACKET_TYPE is 'Ping'\n\n\n`);
-            break;
           case PACKET_TYPE.Normal:
             const { handlerId, userId, payload, version } = packetParser(packet);
             // console.log(`handlerId: ${handlerId}`);
@@ -45,11 +42,9 @@ export const onData = (socket) => async (data) => {
             // handler 실행
             const handler = getHandlerById(handlerId);
             await handler({ socket, userId, payload });
-
-            break;
-          case PACKET_TYPE.Location:
-            console.log(`PACKET_TYPE is 'Location'\n\n\n`);
-            break;
+          // case PACKET_TYPE.Location:
+          //   console.log(`PACKET_TYPE is 'Location'\n\n\n`);
+          //   break;
         }
       } catch (err) {
         console.log(err);
